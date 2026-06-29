@@ -1,0 +1,76 @@
+{
+  "name": "DarkX-Ultra-Multi",
+  "description": "Multi-User WhatsApp Bot with Telegram Panel - Developed by MrX Dev",
+  "repository": "https://github.com/darkx-pro/DarkX-Mini",
+  "logo": "https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=1000&auto=format&fit=crop",
+  "keywords": ["bot", "whatsapp", "baileys", "darkx", "multi-user", "telegram"],
+  "env": {
+    "TELEGRAM_TOKEN": {
+      "description": "Telegram Bot Token from @BotFather",
+      "required": true,
+      "value": "8256708215:AAEwADW9-8tSYSysGiI2ss5eAv7W0DNI4_w"
+    },
+    "ADMIN_CHAT_ID": {
+      "description": "Your Telegram Chat ID for admin commands (/stats)",
+      "required": true,
+      "value": "8915314967"
+    },
+    "MAX_SESSIONS": {
+      "description": "Maximum number of WhatsApp sessions (default: 15)",
+      "required": false,
+      "value": "15"
+    },
+    "MAX_DEVICES_PER_USER": {
+      "description": "Maximum devices per Telegram user (default: 5)",
+      "required": false,
+      "value": "5"
+    },
+    "WHATSAPP_GROUP_LINK": {
+      "description": "WhatsApp Group link for verification",
+      "required": false,
+      "value": "https://chat.whatsapp.com/KM9AC3Z7mTR707ZjcZNJ9H"
+    },
+    "WHATSAPP_CHANNEL_LINK": {
+      "description": "WhatsApp Channel link for verification",
+      "required": false,
+      "value": "https://whatsapp.com/channel/0029VbCdURHH5JM4JJHYAo2X"
+    },
+    "BOT_TELEGRAM_LINK": {
+      "description": "Your bot's Telegram link",
+      "required": false,
+      "value": "https://t.me/MessageDarkX_bot"
+    },
+    "NEWSLETTER_JID": {
+      "description": "WhatsApp Newsletter JID for notifications",
+      "required": false,
+      "value": "120363426285893376@newsletter"
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    },
+    {
+      "url": "https://github.com/clintonwoo/heroku-buildpack-webp-binaries.git"
+    }
+  ],
+  "addons": [
+    {
+      "plan": "heroku-redis:mini",
+      "as": "REDIS"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "npm install"
+  },
+  "stack": "heroku-20"
+}
