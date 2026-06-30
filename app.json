@@ -72,5 +72,5 @@
   "scripts": {
     "postdeploy": "npm install"
   },
-  "stack": "heroku-20"
+  "stack": "heroku-24"
 }
